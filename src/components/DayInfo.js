@@ -2,7 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWind } from "@fortawesome/free-solid-svg-icons";
 import "../styles/dayInfo.css";
-const DayInfo = ({ weather }) => {
+const DayInfo = ({ weather, toggle }) => {
   return (
     <div className="container">
       <div className="wind">
@@ -15,7 +15,16 @@ const DayInfo = ({ weather }) => {
       </div>
       <div className="feelsLike">
         <p>Feels Like</p>
-        <p>{Math.round(weather.current.feelslike_c)}&deg;C</p>
+        {toggle && (
+          <>
+            <p>{Math.round(weather.current.feelslike_c)}&deg;C</p>
+          </>
+        )}
+        {!toggle && (
+          <>
+            <p>{Math.round(weather.current.feelslike_f)}&deg;F</p>
+          </>
+        )}
       </div>
       <div className="visibilty">
         <p>Visibilty</p>

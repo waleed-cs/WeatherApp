@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import "../styles/day.css";
-const Day = ({ hours, setHours, setDegree }) => {
+const Day = ({ hours, setHours, setDegree_c, setDegree_f, toggle }) => {
   const [i, setI] = useState(0);
   const filterHours = () => {
     let date = new Date();
@@ -14,7 +14,8 @@ const Day = ({ hours, setHours, setDegree }) => {
     }
     let filteredHours = hours.filter((obj) => !remover.includes(obj));
     setHours(filteredHours);
-    setDegree(filteredHours[0].temp_c);
+    setDegree_c(filteredHours[0].temp_c);
+    setDegree_f(filteredHours[0].temp_f);
   };
 
   useEffect(() => {
@@ -51,7 +52,16 @@ const Day = ({ hours, setHours, setDegree }) => {
             })()}
           </div>
           <img src={hour.condition.icon} alt="" />
-          <div className="dayDegree">{Math.round(hour.temp_c)}&deg;C</div>
+          {toggle && (
+            <>
+              <div className="dayDegree">{Math.round(hour.temp_c)}&deg;C</div>
+            </>
+          )}
+          {!toggle && (
+            <>
+              <div className="dayDegree">{Math.round(hour.temp_f)}&deg;F</div>
+            </>
+          )}
           <div>{hour.condition.text}</div>
         </div>
       ))}
