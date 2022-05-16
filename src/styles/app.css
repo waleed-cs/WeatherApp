@@ -1,0 +1,79 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(to right, #aa4b6b, #6b6b83, #3b8d99);
+  color: #fbfafc;
+  text-transform: capitalize;
+  text-align: center;
+}
+
+.degree {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  display: flex;
+  background: linear-gradient(
+    to right bottom,
+    rgba(0, 0, 0, 0.7),
+    rgba(0, 0, 0, 0.3)
+  );
+  margin: 5rem auto;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
+}
+
+h2 {
+  background: linear-gradient(
+    to right bottom,
+    rgba(0, 0, 0, 0.7),
+    rgba(0, 0, 0, 0.3)
+  );
+  min-width: 300px;
+  padding-top: 1px;
+}
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.loader > span {
+  width: 0px;
+  height: 0px;
+  border-radius: 50%;
+  background-color: #e53872;
+  margin-right: 8px;
+  animation: load 0.7s infinite alternate;
+}
+
+@keyframes load {
+  to {
+    width: 20px;
+    height: 20px;
+    transform: translate3d(0, -16px, 0);
+  }
+}
+
+.loader > span:nth-child(2) {
+  background-color: #3ea8b9;
+  animation-delay: 0.2s;
+}
+
+.loader > span:nth-child(3) {
+  animation-delay: 0.4s;
+}
