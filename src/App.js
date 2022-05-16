@@ -31,7 +31,7 @@ function App() {
   const getData = () => {
     axios
       .get(
-        `http://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_WEATHER_API}&q=${latitude},${longitude}&days=2&aqi=no&alerts=no`
+        `//api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_WEATHER_API}&q=${latitude},${longitude}&days=2&aqi=no&alerts=no`
       )
       .then((data) => {
         document.querySelector(".App").style.display = "block";
