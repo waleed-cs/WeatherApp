@@ -15,7 +15,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Day from "./components/Day";
 import DayInfo from "./components/DayInfo";
-
+import LazyLoad from "react-lazyload";
 function App() {
   const [weather, setWeather] = useState(null);
   const [hours, setHours] = useState([]);
@@ -168,14 +168,18 @@ function App() {
         <span></span>
       </div>
       <div className="error">
-        <img src={sad} alt="sad icon" />
+        <LazyLoad>
+          <img src={sad} alt="sad icon" />
+        </LazyLoad>
         <h2>Unfortunately, location is required to access</h2>
       </div>
       {weather && (
         <>
           <div className="header">
             <div className="logo">
-              <img src={logo} alt="logo" />
+              <LazyLoad effect="blur">
+                <img src={logo} alt="logo" />
+              </LazyLoad>
             </div>
             <div className="location_section">
               <h2>

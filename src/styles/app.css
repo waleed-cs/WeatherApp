@@ -23,7 +23,7 @@ h2 {
   text-align: left;
 }
 
-.logo > img {
+.logo > .lazyload-wrapper > img {
   width: 130px;
   height: 130px;
   margin: 1rem 0;
@@ -36,7 +36,7 @@ h2 {
   text-align: left;
   font-size: 1.1rem;
 }
-.logo::after {
+.logo .lazyload-wrapper::after {
   content: "";
   border-left: 3px solid rgb(255, 255, 255);
   width: 5px;
