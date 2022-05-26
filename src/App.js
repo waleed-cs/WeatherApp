@@ -15,7 +15,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Day from "./components/Day";
 import DayInfo from "./components/DayInfo";
-import LazyLoad from "react-lazyload";
 function App() {
   const [weather, setWeather] = useState(null);
   const [hours, setHours] = useState([]);
