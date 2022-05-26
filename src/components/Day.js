@@ -1,7 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import "../styles/day.css";
-const Day = ({ hours, setHours, setDegree_c, setDegree_f, toggle }) => {
+const Day = ({
+  hours,
+  setHours,
+  setDegree_c,
+  setDegree_f,
+  toggle,
+  setFeelsLike_c,
+  setFeelsLike_f,
+}) => {
   const [i, setI] = useState(0);
   const filterHours = () => {
     let date = new Date();
@@ -14,6 +22,8 @@ const Day = ({ hours, setHours, setDegree_c, setDegree_f, toggle }) => {
     }
     let filteredHours = hours.filter((obj) => !remover.includes(obj));
     setHours(filteredHours);
+    setFeelsLike_c(filteredHours[0].feelslike_c);
+    setFeelsLike_f(filteredHours[0].feelslike_f);
     setDegree_c(filteredHours[0].temp_c);
     setDegree_f(filteredHours[0].temp_f);
   };
@@ -43,7 +53,14 @@ const Day = ({ hours, setHours, setDegree_c, setDegree_f, toggle }) => {
                 hour.time.substring(11, 13) > 0 &&
                 hour.time.substring(11, 13) <= 11
               ) {
-                return <>{`${hour.time.substring(11, 13)}AM`}</>;
+                if (
+                  hour.time.substring(11, 13) == 10 ||
+                  hour.time.substring(11, 13) == 11
+                ) {
+                  return <>{`${hour.time.substring(11, 13)}AM`}</>;
+                } else {
+                  return <>{`${hour.time.substring(12, 13)}AM`}</>;
+                }
               } else if (hour.time.substring(11, 13) == 0) {
                 return <>{12 + "AM"}</>;
               } else if (hour.time.substring(11, 13) == 12) {

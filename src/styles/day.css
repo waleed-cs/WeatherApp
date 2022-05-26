@@ -8,9 +8,23 @@
   display: flex;
   gap: 1rem;
   text-align: center;
-  overflow-x: scroll;
+  overflow-x: hidden;
   padding: 1rem;
-  margin-top: 4rem;
+  animation: fade 1s;
+  margin-inline: 4rem;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
 }
 
 .forecast > .hour {
@@ -20,6 +34,13 @@
     rgba(0, 0, 0, 0.3)
   );
   padding: 1rem;
-  border-radius: 1.5rem;
-  box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
+  border-radius: 1rem;
+  scroll-snap-align: end;
+}
+
+@media screen and (max-width: 768px) {
+  .forecast {
+    margin-inline: 0;
+    overflow-x: scroll;
+  }
 }

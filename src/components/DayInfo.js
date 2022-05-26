@@ -1,13 +1,23 @@
-import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faWind } from "@fortawesome/free-solid-svg-icons";
+import React, { useEffect } from "react";
 import "../styles/dayInfo.css";
-const DayInfo = ({ weather, toggle }) => {
+const DayInfo = ({ weather, toggle, feelslike_c, feelslike_f, dayStatus }) => {
+  useEffect(() => {
+    let divs = document.querySelectorAll(".container > div > p:first-child");
+    if (dayStatus === "day") {
+      divs.forEach((div) => {
+        div.classList.add("day");
+      });
+    } else if (dayStatus === "night") {
+      divs.forEach((div) => {
+        div.classList.add("night");
+      });
+    }
+  }, [dayStatus]);
   return (
     <div className="container">
       <div className="wind">
         <p>wind</p>
-        <p>{weather.current.wind_kph}km/h</p>
+        <p>{weather.current.wind_kph} km/h</p>
       </div>
       <div className="humidity">
         <p>humidity</p>
@@ -17,18 +27,18 @@ const DayInfo = ({ weather, toggle }) => {
         <p>Feels Like</p>
         {toggle && (
           <>
-            <p>{Math.round(weather.current.feelslike_c)}&deg;C</p>
+            <p>{Math.round(feelslike_c)}&deg;C</p>
           </>
         )}
         {!toggle && (
           <>
-            <p>{Math.round(weather.current.feelslike_f)}&deg;F</p>
+            <p>{Math.round(feelslike_f)}&deg;F</p>
           </>
         )}
       </div>
       <div className="visibilty">
         <p>Visibilty</p>
-        <p>{weather.current.vis_km}Km</p>
+        <p>{weather.current.vis_km} Km</p>
       </div>
       <div className="uv">
         <p>UV</p>
