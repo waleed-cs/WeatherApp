@@ -168,9 +168,7 @@ function App() {
         <span></span>
       </div>
       <div className="error">
-        <LazyLoad>
-          <img src={sad} alt="sad icon" />
-        </LazyLoad>
+        <img src={sad} alt="sad icon" />
         <h2>Unfortunately, location is required to access</h2>
       </div>
       {weather && (
