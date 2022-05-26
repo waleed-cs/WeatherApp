@@ -156,95 +156,93 @@ function App() {
   };
 
   return (
-    <LazyLoad effect="blur">
-      <div className="App">
-        <Helmet>
-          <meta charSet="utf-8" />
-          <title>Weathery</title>
-          <link rel="canonical" href="/" />
-        </Helmet>
-        <div className="loader">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <div className="error">
-          <LazyLoad>
-            <img src={sad} alt="sad icon" />
-          </LazyLoad>
-          <h2>Unfortunately, location is required to access</h2>
-        </div>
-        {weather && (
-          <>
-            <div className="header">
-              <div className="logo">
-                <LazyLoad effect="blur">
-                  <img src={logo} alt="logo" />
-                </LazyLoad>
-              </div>
-              <div className="location_section">
-                <h2>
-                  <FontAwesomeIcon icon={faLocationDot} className="location" />
-                </h2>
-                <div className="location_info">
-                  <h2>{weather.location.country}</h2>
-                  <p>{weather.location.name}</p>
-                </div>
-              </div>
-            </div>
-            <div className="switch">
-              <span className="cSwitch show" onClick={cAnimation}>
-                &deg;C
-              </span>
-              <span className="fSwitch" onClick={fAnimation}>
-                &deg;F
-              </span>
-            </div>
-            {toggle && (
-              <>
-                <div className="degree">{Math.round(degree_c)}&deg;C</div>
-              </>
-            )}
-            {!toggle && (
-              <>
-                <div className="degree">{Math.round(degree_f)}&deg;F</div>
-              </>
-            )}
-            <div className="day_parent">
-              <FontAwesomeIcon
-                icon={faArrowLeft}
-                className="arrow"
-                onClick={goLeft}
-              />
-
-              <Day
-                hours={hours}
-                setHours={setHours}
-                setDegree_c={setDegree_c}
-                setDegree_f={setDegree_f}
-                toggle={toggle}
-                setToggle={setToggle}
-                setFeelsLike_c={setFeelsLike_c}
-                setFeelsLike_f={setFeelsLike_f}
-              />
-
-              <FontAwesomeIcon
-                icon={faArrowRight}
-                className="arrow"
-                onClick={goRight}
-              />
-            </div>
-            <DayInfo
-              weather={weather}
-              toggle={toggle}
-              feelslike_f={feelslike_f}
-              feelslike_c={feelslike_c}
-              dayStatus={dayStatus}
-            />
-          </>
-        )}
+    <div className="App">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Weathery</title>
+        <link rel="canonical" href="/" />
+      </Helmet>
+      <div className="loader">
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
-    </LazyLoad>
+      <div className="error">
+        <LazyLoad>
+          <img src={sad} alt="sad icon" />
+        </LazyLoad>
+        <h2>Unfortunately, location is required to access</h2>
+      </div>
+      {weather && (
+        <>
+          <div className="header">
+            <div className="logo">
+              <LazyLoad effect="blur">
+                <img src={logo} alt="logo" />
+              </LazyLoad>
+            </div>
+            <div className="location_section">
+              <h2>
+                <FontAwesomeIcon icon={faLocationDot} className="location" />
+              </h2>
+              <div className="location_info">
+                <h2>{weather.location.country}</h2>
+                <p>{weather.location.name}</p>
+              </div>
+            </div>
+          </div>
+          <div className="switch">
+            <span className="cSwitch show" onClick={cAnimation}>
+              &deg;C
+            </span>
+            <span className="fSwitch" onClick={fAnimation}>
+              &deg;F
+            </span>
+          </div>
+          {toggle && (
+            <>
+              <div className="degree">{Math.round(degree_c)}&deg;C</div>
+            </>
+          )}
+          {!toggle && (
+            <>
+              <div className="degree">{Math.round(degree_f)}&deg;F</div>
+            </>
+          )}
+          <div className="day_parent">
+            <FontAwesomeIcon
+              icon={faArrowLeft}
+              className="arrow"
+              onClick={goLeft}
+            />
+
+            <Day
+              hours={hours}
+              setHours={setHours}
+              setDegree_c={setDegree_c}
+              setDegree_f={setDegree_f}
+              toggle={toggle}
+              setToggle={setToggle}
+              setFeelsLike_c={setFeelsLike_c}
+              setFeelsLike_f={setFeelsLike_f}
+            />
+
+            <FontAwesomeIcon
+              icon={faArrowRight}
+              className="arrow"
+              onClick={goRight}
+            />
+          </div>
+          <DayInfo
+            weather={weather}
+            toggle={toggle}
+            feelslike_f={feelslike_f}
+            feelslike_c={feelslike_c}
+            dayStatus={dayStatus}
+          />
+        </>
+      )}
+    </div>
   );
 }
 
