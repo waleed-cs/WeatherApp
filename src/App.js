@@ -177,9 +177,7 @@ function App() {
         <>
           <div className="header">
             <div className="logo">
-              <LazyLoad effect="blur">
-                <img src={logo} alt="logo" />
-              </LazyLoad>
+              <img src={logo} alt="logo" />
             </div>
             <div className="location_section">
               <h2>
