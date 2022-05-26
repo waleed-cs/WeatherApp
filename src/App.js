@@ -3,7 +3,7 @@ import axios from "axios";
 import "./styles/app.css";
 import logo from "./img/logo.svg";
 import dayImage from "./img/Day.png";
-import nightImage from "./img/Night1.png";
+import nightImage from "./img/Night.png";
 import errorImage from "./img/Error.png";
 import sad from "./img/sad.svg";
 import { Helmet } from "react-helmet";
