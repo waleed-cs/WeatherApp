@@ -98,35 +98,34 @@ function App() {
   };
 
   useEffect(() => {
-    getData();
-    // if (j < 1) {
-    //   if ("geolocation" in navigator) {
-    //     navigator.geolocation.getCurrentPosition(
-    //       function (position) {
-    //         latitude = position.coords.latitude;
-    //         longitude = position.coords.longitude;
-    //         document.querySelector(".loader").style.display = "flex";
-    //         window.scrollTo({ top: 0, behavior: "smooth" });
-    //         getData();
-    //       },
-    //       function (error) {
-    //         if (error.code == 1) {
-    //           document.querySelector(
-    //             ".App"
-    //           ).style.background = `url(${errorImage})`;
-    //           document.querySelector(".error").style.display = "flex";
-    //           document.querySelector(".App").style.backgroundSize = `cover`;
-    //           document.querySelector(".App").style.backgroundRepeat =
-    //             "no-repeat";
-    //           document.querySelector(".App").style.backgroundPosition =
-    //             "center center";
-    //         }
-    //       }
-    //     );
-    //   } else {
-    //   }
-    // }
-    // setJ(j + 1);
+    if (j < 1) {
+      if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(
+          function (position) {
+            latitude = position.coords.latitude;
+            longitude = position.coords.longitude;
+            document.querySelector(".loader").style.display = "flex";
+            window.scrollTo({ top: 0, behavior: "smooth" });
+            getData();
+          },
+          function (error) {
+            if (error.code == 1) {
+              document.querySelector(
+                ".App"
+              ).style.background = `url(${errorImage})`;
+              document.querySelector(".error").style.display = "flex";
+              document.querySelector(".App").style.backgroundSize = `cover`;
+              document.querySelector(".App").style.backgroundRepeat =
+                "no-repeat";
+              document.querySelector(".App").style.backgroundPosition =
+                "center center";
+            }
+          }
+        );
+      } else {
+      }
+    }
+    setJ(j + 1);
   }, []);
 
   useEffect(changeColor, [dayStatus]);
@@ -134,7 +133,7 @@ function App() {
   const getData = () => {
     axios
       .get(
-        `https://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_WEATHER_API}&q=dammam&days=2&aqi=no&alerts=no`
+        `https://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_WEATHER_API}&q=${latitude},${longitude}&days=2&aqi=no&alerts=no`
       )
       .then((data) => {
         document.querySelector(".App").style.display = "block";
