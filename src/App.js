@@ -122,9 +122,6 @@ function App() {
             }
           }
         );
-        window.onload = () => {
-          document.querySelector(".loader").style.display = "none";
-        };
       } else {
       }
     }
@@ -132,7 +129,9 @@ function App() {
   }, []);
 
   useEffect(changeColor, [dayStatus]);
-
+  window.onload = () => {
+    document.querySelector(".loader").style.display = "none";
+  };
   const getData = () => {
     axios
       .get(
