@@ -95,9 +95,9 @@ function App() {
     document.body.style.backgroundSize = `cover`;
     document.body.style.backgroundRepeat = "no-repeat";
     document.body.style.objectFit = "cover";
-    document.addEventListener("DOMContentLoaded", () => {
+    window.onload = () => {
       document.querySelector(".loader").style.display = "none";
-    });
+    };
   };
 
   useEffect(() => {
