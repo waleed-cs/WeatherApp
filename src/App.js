@@ -55,7 +55,6 @@ function App() {
     let today = new Date();
     let time = today.getHours();
     let day = "";
-
     if (time == 0) {
       time = time + 12;
       day = "AM";
@@ -65,6 +64,7 @@ function App() {
     } else if (time >= 0 || time <= 11) {
       day = "AM";
     }
+
     if (day == "PM") {
       if (time == 12) {
         document.body.style.backgroundImage = `url(${dayImage})`;
@@ -95,6 +95,7 @@ function App() {
     document.body.style.backgroundSize = `cover`;
     document.body.style.backgroundRepeat = "no-repeat";
     document.body.style.objectFit = "cover";
+    document.querySelector(".loader").style.display = "none";
   };
 
   useEffect(() => {
@@ -137,7 +138,7 @@ function App() {
       )
       .then((data) => {
         document.querySelector(".App").style.display = "block";
-        document.querySelector(".loader").style.display = "none";
+
         setWeather(data.data);
         let day1 = data.data.forecast.forecastday[0].hour;
         let day2 = data.data.forecast.forecastday[1].hour;
