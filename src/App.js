@@ -105,6 +105,7 @@ function App() {
             latitude = position.coords.latitude;
             longitude = position.coords.longitude;
             document.querySelector(".loader").style.display = "flex";
+            window.scrollTo({ top: 0, behavior: "smooth" });
             getData();
           },
           function (error) {
