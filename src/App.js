@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./styles/app.css";
-import logo from "./img/logo.svg";
+import logo from "./img/logo.webp";
 import dayImage from "./img/Day.webp";
 import nightImage from "./img/Night.webp";
 import errorImage from "./img/Error.webp";
