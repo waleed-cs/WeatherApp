@@ -95,6 +95,10 @@ function App() {
     document.body.style.backgroundSize = `cover`;
     document.body.style.backgroundRepeat = "no-repeat";
     document.body.style.objectFit = "cover";
+
+    document.querySelector(".App").addEventListener("load", (event) => {
+      document.querySelector(".loader").style.display = "none";
+    });
   };
 
   useEffect(() => {
@@ -172,11 +176,6 @@ function App() {
       </div>
       {weather && (
         <>
-          {
-            (window.onload = () => {
-              document.querySelector(".loader").style.display = "none";
-            })
-          }
           <div className="header">
             <div className="logo">
               <img src={logo} alt="logo" />
