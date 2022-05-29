@@ -100,7 +100,7 @@ function App() {
   };
 
   useEffect(() => {
-    document.body.style.backgroundImage = `url(${semiNight})`;
+    // document.body.style.backgroundImage = `url(${semiNight})`;
     if (j < 1) {
       if ("geolocation" in navigator) {
         navigator.geolocation.getCurrentPosition(
