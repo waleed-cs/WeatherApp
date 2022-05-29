@@ -77,7 +77,7 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  display: none;
+  /* display: none; */
 }
 
 .loader > span {
