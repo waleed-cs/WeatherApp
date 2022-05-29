@@ -5,7 +5,7 @@ import logo from "./img/logo.svg";
 import dayImage from "./img/Day.webp";
 import nightImage from "./img/Night.webp";
 import errorImage from "./img/Error.webp";
-import semiNight from "./img/seminight.png";
+import semiNight from "./img/seminight.webp";
 import sad from "./img/sad.svg";
 import { Helmet } from "react-helmet";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
