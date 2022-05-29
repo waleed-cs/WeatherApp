@@ -5,6 +5,7 @@ import logo from "./img/logo.svg";
 import dayImage from "./img/Day.webp";
 import nightImage from "./img/Night.webp";
 import errorImage from "./img/Error.webp";
+import semiNight from "./img/seminight.png";
 import sad from "./img/sad.svg";
 import { Helmet } from "react-helmet";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -95,13 +96,11 @@ function App() {
     document.body.style.backgroundSize = `cover`;
     document.body.style.backgroundRepeat = "no-repeat";
     document.body.style.objectFit = "cover";
-
-    document.querySelector(".App").addEventListener("load", (event) => {
-      document.querySelector(".loader").style.display = "none";
-    });
+    document.querySelector(".loader").style.display = "none";
   };
 
   useEffect(() => {
+    document.body.style.backgroundImage = `url(${semiNight})`;
     if (j < 1) {
       if ("geolocation" in navigator) {
         navigator.geolocation.getCurrentPosition(
