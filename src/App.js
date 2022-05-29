@@ -95,7 +95,6 @@ function App() {
     document.body.style.backgroundSize = `cover`;
     document.body.style.backgroundRepeat = "no-repeat";
     document.body.style.objectFit = "cover";
-    document.querySelector(".loader").style.display = "none";
   };
 
   useEffect(() => {
@@ -138,7 +137,6 @@ function App() {
       )
       .then((data) => {
         document.querySelector(".App").style.display = "block";
-
         setWeather(data.data);
         let day1 = data.data.forecast.forecastday[0].hour;
         let day2 = data.data.forecast.forecastday[1].hour;
@@ -174,6 +172,11 @@ function App() {
       </div>
       {weather && (
         <>
+          {
+            (window.onload = () => {
+              document.querySelector(".loader").style.display = "none";
+            })
+          }
           <div className="header">
             <div className="logo">
               <img src={logo} alt="logo" />
