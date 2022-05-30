@@ -5,7 +5,6 @@ import logo from "./img/logo.svg";
 import dayImage from "./img/Day.webp";
 import nightImage from "./img/Night.webp";
 import errorImage from "./img/Error.webp";
-import semiNight from "./img/seminight.webp";
 import sad from "./img/sad.svg";
 import { Helmet } from "react-helmet";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -100,7 +99,6 @@ function App() {
   };
 
   useEffect(() => {
-    // document.body.style.backgroundImage = `url(${semiNight})`;
     if (j < 1) {
       if ("geolocation" in navigator) {
         navigator.geolocation.getCurrentPosition(
@@ -141,6 +139,7 @@ function App() {
       .then((data) => {
         document.querySelector(".App").style.display = "block";
         setWeather(data.data);
+        console.log(data.data);
         let day1 = data.data.forecast.forecastday[0].hour;
         let day2 = data.data.forecast.forecastday[1].hour;
         Array.prototype.push.apply(day1, day2);

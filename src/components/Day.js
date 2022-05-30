@@ -29,6 +29,7 @@ const Day = ({
   };
 
   useEffect(() => {
+    document.querySelector(".forecast").scrollLeft -= 10000;
     if (i < 1) {
       filterHours();
     }
@@ -38,7 +39,14 @@ const Day = ({
   return (
     <div className="forecast">
       {hours.map((hour) => (
-        <div className="hour" key={uuidv4()}>
+        <div
+          className={`hour ${
+            hours[0].time.substring(0, 10) !== hour.time.substring(0, 10)
+              ? "day2"
+              : ""
+          }`}
+          key={uuidv4()}
+        >
           <div>
             {(() => {
               if (hours[0].time === hour.time) {
