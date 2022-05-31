@@ -111,6 +111,7 @@ function App() {
           },
           function (error) {
             if (error.code == 1) {
+              document.querySelector(".loader").style.display = "none";
               document.querySelector(
                 ".App"
               ).style.background = `url(${errorImage})`;
