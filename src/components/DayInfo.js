@@ -36,8 +36,8 @@ const DayInfo = ({ weather, toggle, feelslike_c, feelslike_f, dayStatus }) => {
           </>
         )}
       </div>
-      <div className="visibilty">
-        <p>Visibilty</p>
+      <div className="visibility">
+        <p>Visibility</p>
         <p>{weather.current.vis_km} Km</p>
       </div>
       <div className="uv">
